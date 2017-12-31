@@ -11,11 +11,11 @@ client.on('ready', () => {
 client.on('message', function(message) {
         if (message.channel.isPrivate) {
                 var dmlog = `(Private) ${message.author.username}: ${message.content}`;
-                fs.writeFile(file, dmlog);
+                fs.appendFile(file, dmlog + "\n");
                 console.log(`(Private) ${message.author.username}: ${message.content}`);
         } else {
                 var log = `(${message.guild.name} / ${message.channel.name}) ${message.author.username}: ${message.content}`;
-                fs.writeFile(file, log);
+                fs.appendFile(file, log + "\n");
                 console.log(`(${message.guild.name} / ${message.channel.name}) ${message.author.username}: ${message.content}`);
         }
 });
